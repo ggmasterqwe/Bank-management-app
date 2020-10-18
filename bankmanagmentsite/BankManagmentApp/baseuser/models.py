@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
-from .managers.user_manager import MainUserManager
-from root.configs.models_settings import *
+from .managers import MainUserManager
 from common.constants import GenderType, UserType
 from rest_framework.authtoken.models import Token
 
