@@ -58,3 +58,21 @@ class MainUser(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+
+class Client(models.Model):
+    first_name = models.CharField(max_length=MAX_FIRST_NAME, null=False, blank=False)
+    last_name = models.CharField(max_length=MAX_LAST_NAME,null=False, blank=False)
+    nationalid = models.CharField(max_length=MAX_NATIONALID, unique=True, null=False, blank=False)
+    phone_number= models.CharField(max_length=MAX_PHONE_NUMBER, unique=True, null=False, blank=False)
+    birth_date = models.DateField(null=True,blank=True)
+    gender = models.IntegerField(choices=GenderType.CHOICES, default=GenderType.male)
+
+    def __str__(self):
+        return self.nationalid
+
+    def full_name(self):
+        return self.first_name + self.last_name
+
+    def client_detail(self):
+        return self.bank_account.get_balance()
