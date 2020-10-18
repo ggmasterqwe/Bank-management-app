@@ -7,10 +7,10 @@ from rest_framework.authtoken.models import Token
 
 class MainUser(AbstractBaseUser):
     objects = MainUserManager()
-    first_name = models.CharField(max_length=MAX_FIRST_NAME, null=True, blank=True)
-    last_name = models.CharField(max_length=MAX_LAST_NAME,null=True, blank=True)
-    nationalid = models.CharField(max_length=MAX_NATIONALID, unique=True,)
-    phone_number= models.CharField(max_length=MAX_PHONE_NUMBER,unique=True)
+    first_name = models.CharField(max_length=15, null=True, blank=True)
+    last_name = models.CharField(max_length=16,null=True, blank=True)
+    nationalid = models.CharField(max_length=12, unique=True,)
+    phone_number= models.CharField(max_length=12,unique=True)
     password = models.CharField(max_length=100)
     
     birth_date = models.DateField(null=True,blank=True)
@@ -24,7 +24,7 @@ class MainUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['nationalid', 'password']
 
     def save(self, *args, **kwargs):
-        from BankManagementApp.models import  BranchAdmin
+        from BankManagementApp.branches.models import  BranchAdmin
         if not self.id:
         ## set user_type
             if isinstance(self, BranchAdmin):
