@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from MainApp.models import MainUser
+from .models import MainUser
 from django.db.models import Q
 from django.contrib.auth import authenticate
 from django.utils.translation import ugettext_lazy as _
