@@ -10,7 +10,8 @@ from rest_framework.permissions import IsAuthenticated
 from .serializers import DepositMoneySerializer, InvoiceListSerializer, WithdrawMoneySerializer
 from common.constants import InvoiceType
 from common.permissions import IsBranchAdmin
-from .models import Account, BranchAdmin, Branch, Client, Invoice
+from .models import Account, Branch, Client, Invoice
+from BankManagmentApp.branches.models import BranchAdmin
 # Create your views here.
 
 

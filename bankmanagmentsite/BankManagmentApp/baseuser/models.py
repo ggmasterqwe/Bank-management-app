@@ -23,7 +23,7 @@ class MainUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['nationalid', 'password']
 
     def save(self, *args, **kwargs):
-        from BankManagementApp.branches.models import  BranchAdmin
+        from BankManagmentApp.branches.models import  BranchAdmin
         if not self.id:
         ## set user_type
             if isinstance(self, BranchAdmin):
@@ -61,10 +61,10 @@ class MainUser(AbstractBaseUser):
 
 
 class Client(models.Model):
-    first_name = models.CharField(max_length=MAX_FIRST_NAME, null=False, blank=False)
-    last_name = models.CharField(max_length=MAX_LAST_NAME,null=False, blank=False)
-    nationalid = models.CharField(max_length=MAX_NATIONALID, unique=True, null=False, blank=False)
-    phone_number= models.CharField(max_length=MAX_PHONE_NUMBER, unique=True, null=False, blank=False)
+    first_name = models.CharField(max_length=15, null=False, blank=False)
+    last_name = models.CharField(max_length=20,null=False, blank=False)
+    nationalid = models.CharField(max_length=10, unique=True, null=False, blank=False)
+    phone_number= models.CharField(max_length=12, unique=True, null=False, blank=False)
     birth_date = models.DateField(null=True,blank=True)
     gender = models.IntegerField(choices=GenderType.CHOICES, default=GenderType.male)
 

@@ -1,7 +1,6 @@
 from django.urls import path, include
 
-from .apis.auth_api import *
-from .apis.user_api import *
+from .apis import *
 urlpatterns = [
 
     path('login/', LoginUserAPI.as_view(), name="login"),
@@ -9,5 +8,5 @@ urlpatterns = [
     # path('reset-password/'),
     
     path('detail', UserProfileApi.as_view(),name='detail'),
-    path('users/', ListOfUsers.as_view(), name='userList')
+
 ]

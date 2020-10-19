@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework import generics
-from ..serializers.serializers import MainUserSerializer, RegisterSerializer, LoginSerializer
+from .serializers import MainUserSerializer, LoginSerializer
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import MainUser
 
