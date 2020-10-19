@@ -25,8 +25,9 @@ SECRET_KEY = '6ddsaq@-5+cfloj+_fk-93$5li!g-zo*s)7$%9e#=a+qa406ze'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'BankManagmentApp.baseuser.MainUser'
 
 # Application definition
 
@@ -78,16 +79,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bankmanagmentApp.wsgi.application'
 
+# Rest framework settings
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    ]
 }
+
+
+# Cron job sets here:
+CRONJOBS = [
+    ('0 12 1 * *', 'InvoiceApp.cron.daily_profit', '>> ~/cron_job.log')
+]
+
+
+# Cache settings
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 
 # Password validation
