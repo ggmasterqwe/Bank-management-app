@@ -27,7 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_USER_MODEL = 'BankManagmentApp.baseuser.MainUser'
+AUTH_USER_MODEL = 'baseuser.MainUser'
+
+
+CACHE_TTL = 60*1
 
 # Application definition
 
@@ -41,10 +44,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_crontab',
-    'BankManagmentApp'
-    'BankManagnmentApp.baseuser',
-    'BankManagnmentApp.branches',
-    'BankManagnmentApp.invoices',
+    'BankManagmentApp',
+    'BankManagmentApp.baseuser',
+    'BankManagmentApp.branches',
+    'BankManagmentApp.invoices',
     
 
 ]
@@ -59,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'bankmanagmentApp.urls'
+ROOT_URLCONF = 'root.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bankmanagmentApp.wsgi.application'
+WSGI_APPLICATION = 'root.wsgi.application'
 
 # Rest framework settings
 
