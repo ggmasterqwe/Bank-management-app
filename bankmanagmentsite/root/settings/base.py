@@ -44,10 +44,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_crontab',
-    'BankManagmentApp',
-    'BankManagmentApp.baseuser',
-    'BankManagmentApp.branches',
-    'BankManagmentApp.invoices',
+    'BankManagementApp',
+    'BankManagementApp.baseuser',
+    'BankManagementApp.branches',
+    'BankManagementApp.invoices',
     
 
 ]

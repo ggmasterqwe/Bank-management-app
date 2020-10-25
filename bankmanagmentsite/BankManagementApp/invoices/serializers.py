@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from BankManagmentApp.branches.serializers import BranchDetailSerializer, ClientAccDetailSerializer
+from BankManagementApp.branches.serializers import BranchDetailSerializer, ClientAccDetailSerializer
                                           
 from .models import Invoice, Account, Client, Branch
 from common.constants import InvoiceType

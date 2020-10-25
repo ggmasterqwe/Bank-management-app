@@ -11,7 +11,7 @@ from .serializers import DepositMoneySerializer, InvoiceListSerializer, Withdraw
 from common.constants import InvoiceType
 from common.permissions import IsBranchAdmin
 from .models import Account, Branch, Client, Invoice
-from BankManagmentApp.branches.models import BranchAdmin
+from BankManagementApp.branches.models import BranchAdmin
 # Create your views here.
 
 

@@ -1,8 +1,8 @@
 from django.db import models
-from BankManagmentApp.baseuser.models import MainUser
+from BankManagementApp.baseuser.models import MainUser
 from .managers import AccountManager
 from common.constants import GenderType, InvoiceType
-from BankManagmentApp.baseuser.models import Client
+from BankManagementApp.baseuser.models import Client
 from common.utils import generate_number
 
 
@@ -36,7 +36,7 @@ class Account(models.Model):
         return self.client.full_name()
 
     def get_balance(self):
-        from BankManagmentApp.invoices.models import Invoice
+        from BankManagementApp.invoices.models import Invoice
         invoices = Invoice.objects.filter(account=self.id)
 
         balance = 0

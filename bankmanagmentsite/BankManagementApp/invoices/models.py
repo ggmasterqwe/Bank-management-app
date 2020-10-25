@@ -1,5 +1,5 @@
 from django.db import models
-from BankManagmentApp.branches.models import Account, Branch, Client
+from BankManagementApp.branches.models import Account, Branch, Client
 from common.constants import InvoiceType
 # Create your models here.
 

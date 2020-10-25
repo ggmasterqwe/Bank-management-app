@@ -23,7 +23,7 @@ class MainUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['nationalid', 'password']
 
     def save(self, *args, **kwargs):
-        from BankManagmentApp.branches.models import  BranchAdmin
+        from BankManagementApp.branches.models import  BranchAdmin
         if not self.id:
         ## set user_type
             if isinstance(self, BranchAdmin):
