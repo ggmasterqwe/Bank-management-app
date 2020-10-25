@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 class MainUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainUser
-        exclude = ['is_admin', 'is_active', 'id', 'password', 'registration_status']
+        exclude = ['is_admin', 'is_active', 'id', 'password', ]
 
 class LoginSerializer(serializers.Serializer):
     custom_message = {'blank':'این فیلد نمی تواند خالی باشد', 'required':'این فیلد نمی تواند خالی باشد'}

@@ -2,7 +2,7 @@ from django.contrib.auth.models import BaseUserManager
 
 class MainUserManager(BaseUserManager):
     def create_user(self, phone_number,  password='1', nationalid='', first_name='', 
-                    last_name='', birth_date='', registration_status=''):
+                    last_name='', birth_date='',):
         if password != '1' and len(password) < 8:
             raise ValueError('A password must have at least 8 characters.')
 
@@ -25,7 +25,7 @@ class MainUserManager(BaseUserManager):
             nationalid=nationalid
         )
         user.is_admin = True
-        user.registration_status = True
+        
         user.save(using=self._db)
         return user
 
